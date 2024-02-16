@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <title>WebApss Assignment06</title>
+<body>
+    <h1>Animal Game by [Greeshma Borra]</h2>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="hidden-animal">The hidden animal type:</label>
+    <input type ="password" id="hidden-animal" value="Chicken"> <br>
+    
+    <label for="guess-animal">Guess the animal:</label>
+    <input type ="text" id="guess-animal"> <br>
+
+    <button type="button" onclick="checkAnimal()">Check the guess</button>
+</form>
+
+
+<p id="result"></p>
+
+<script>
+let correct=0;
+let wrong=0;
+
+function checkAnimal(){
+   const hiddenAnimal = document.getElementById("hidden-animal").value;
+   const guessedAnimal =document.getElementById("guess-animal").value;
+
+    if(hiddenAnimal.toLowerCase() === guessedAnimal.toLowerCase()){
+        correct++;
+       alert("Ruff ruff")
+    } else {
+        wrong++;
+        alert("Grrrr")
+       
+    }
+    document.getElementById('result').innerHTML = `Correct: $(correct), Wrong: ${wrong}`;
+}
+</script>
+</body>
+</html> 
