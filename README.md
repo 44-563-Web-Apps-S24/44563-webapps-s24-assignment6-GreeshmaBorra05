@@ -2,3 +2,4 @@
 # WebApps-S24-Assignment-6
 Introduction to Java Script and DOM
 
+Introduction to Java Script and DOM Hosted at https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-GreeshmaBorra05//animal.html https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-GreeshmaBorra05//discount.html https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-GreeshmaBorra05//packing.html
