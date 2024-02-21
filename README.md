@@ -1,5 +1,4 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/1Z6dGCon)
 # WebApps-S24-Assignment-6
 Introduction to Java Script and DOM
-
-Introduction to Java Script and DOM Hosted at https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-GreeshmaBorra05//animal.html https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-GreeshmaBorra05//discount.html https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-GreeshmaBorra05//packing.html
+ Hosted at https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-GreeshmaBorra05//animal.html https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-GreeshmaBorra05//discount.html https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-GreeshmaBorra05//packing.html
