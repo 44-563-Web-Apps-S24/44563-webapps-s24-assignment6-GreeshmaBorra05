@@ -7,40 +7,53 @@
 <h2>Getting input</h2>
 
 
-<form>
-    <label for="form1_hidden">The hidden animal type </label>
-    <input type ="password" id="form1_hidden" name="form1_hidden" value="Chicken"> <br>
-
-    <label for="form1_guess">Guess the animal</label>
-    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
-
-    <input type="button" onclick="checkAnimal()" value="Check the guess">
+<form id="animalForm">
+    <label for="hidden-animal">The hidden animal type:</label>
+    <input type="password" id="hidden-animal" value="Chicken"><br>
+    <label for="guess-animal">Guess the animal:</label>
+    <input type="text" id="guess-animal"> <br>
+    <button type="button" onclick="checkAnimal()">Check the guess</button>
 </form>
 
 
 <p id="result"></p>
 
-<script> 
-let wrong = 0
-let correct = 0
 
-function checkAnimal(){
-    animal = document.getElementById("form1_hidden").value
-    guess = document.getElementById("form1_guess").value
-    if (animal == guess) {
-        correct += 1
-        alert("ruff ruff");
+<script>
+    let correct = 0;
+    let wrong = 0;
+   
+    
+    function checkAnimal() {
+        const hiddenAnimal = document.getElementById('hidden-animal').value;
+        const guessedAnimal = document.getElementById('guess-animal').value;
+
+        if (hiddenAnimal.toLowerCase() === guessedAnimal.toLowerCase()) {
+            correct++;
+            alert("Ruff ruff");
+        } else {
+            wrong++;
+            alert("Grrrr");
+        }
+        document.getElementById('result').innerHTML = `<p>Correct guesses: ${correct}</p><p>Wrong guesses: ${wrong}</p>`;
+        // Bonus
+        if (wrong > correct) {
+            document.getElementById('animalForm').onclick = function() {
+                alert('Sorry, too many wrong guesses.');
+            };
+        }
     }
-    else {
-        wrong += 1
-        alert("Grrrr");
-    }
-    document.getElementById("result").innerHTML = "Wrong: " + wrong + " Correct: " + correct
-}
 </script>
+
+
+
+
 <div>
     <img src="orangemojito.jpg" height="150px" width="150px" onclick="selectImage()" id="drinkImage">
 </div>
+
+
+
 
 <script>
     let useImage = 1
@@ -61,6 +74,7 @@ function checkAnimal(){
         }
     }
 </script>
+        
 
 </body>
 </html> 
