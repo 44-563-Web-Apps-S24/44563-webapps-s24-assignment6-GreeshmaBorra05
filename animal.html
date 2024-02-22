@@ -1,80 +1,94 @@
 <!DOCTYPE html>
 <html>
+
+<head>
     <title>WebApss Assignment06</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css”
+        rel=”nofollow” integrity=”sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I”
+        crossorigin=”anonymous”>
+</head>
+
 <body>
-    <h1>Animal Game by [Greeshma Borra]</h2>
+    <div class="container">
+        <h1>Animal game by <span>Greeshma Borra</span></h1>
 
-<h2>Getting input</h2>
+        <form>
+            <div class="set">
+                <label for="form1_hidden_animal">The hidden animal type</label>
+                <input class="form-control" type="password" id="form1_hidden_animal" name="form1_hidden_animal" value="Chicken"> <br>
+            </div>
+            <div class="set">
+                <label for="form1_guess_animal">Guess the animal</label>
+                <input class="form-control" type="text" id="form1_guess_animal" name="form1_guess_animal" autofocus> <br>
+            </div>
+            <input type="button" class="button" id="btn" onclick="checkAnimal()" value="Check the guess">
+        </form>
 
 
-<form id="animalForm">
-    <label for="hidden-animal">The hidden animal type:</label>
-    <input type="password" id="hidden-animal" value="Chicken"><br>
-    <label for="guess-animal">Guess the animal:</label>
-    <input type="text" id="guess-animal"> <br>
-    <button type="button" onclick="checkAnimal()">Check the guess</button>
-</form>
+        <p id="result">This text will be replaced</p>
+
+        <div class="image-container" onclick="collapse">
+            <img id="imageCarasoul" src="./images/panakam.jpeg" onclick="selectImage()" alt="" width="150px"
+                height="150px">
+        </div>
+    </div>
+    <script>
+        let wrong = 0
+        let correct = 0
+        let useImage = 1;
+
+        function checkAnimal() {
+            hidden = document.getElementById("form1_hidden_animal").value
+            guess = document.getElementById("form1_guess_animal").value
+            button = document.getElementById("btn")
+            // confirmed = confirm("Are these the values? "+age+" and "+nick)
 
 
-<p id="result"></p>
-
-
-<script>
-    let correct = 0;
-    let wrong = 0;
-   
-    
-    function checkAnimal() {
-        const hiddenAnimal = document.getElementById('hidden-animal').value;
-        const guessedAnimal = document.getElementById('guess-animal').value;
-
-        if (hiddenAnimal.toLowerCase() === guessedAnimal.toLowerCase()) {
-            correct++;
-            alert("Ruff ruff");
-        } else {
-            wrong++;
-            alert("Grrrr");
+            out = document.getElementById("result")
+            if (hidden === guess) {
+                alert("Ruff ruff")
+                correct++
+            } else {
+                alert("Grrrr")
+                wrong++
+            }
+            if (wrong > correct)
+                button.setAttribute('onclick', 'tooManyWrong()')
+            out.innerHTML = "Correct: " + correct + " Wrong: " + wrong
         }
-        document.getElementById('result').innerHTML = `<p>Correct guesses: ${correct}</p><p>Wrong guesses: ${wrong}</p>`;
-        // Bonus
-        if (wrong > correct) {
-            document.getElementById('animalForm').onclick = function() {
-                alert('Sorry, too many wrong guesses.');
-            };
+
+
+
+
+
+        function tooManyWrong() {
+            alert("Sorry, too many wrong guesses.")
+
         }
-    }
-</script>
 
+        function selectImage() {
 
+            imageCarasoul = document.getElementById("imageCarasoul")
 
+            switch (useImage) {
+                case 1: imageCarasoul.src = "./images/Tati_Kallu.jpg"
+                    useImage = 2
+                    break;
+                case 2: imageCarasoul.src = "./images/Lemon_Soda.jpg"
+                    useImage = 3
+                    break;
+                case 3: imageCarasoul.src = "./images/panakam.jpeg"
+                    useImage = 1
+                    break;
 
-<div>
-    <img src="orangemojito.jpg" height="150px" width="150px" onclick="selectImage()" id="drinkImage">
-</div>
-
-
-
-
-<script>
-    let useImage = 1
-    function selectImage(){
-        switch(useImage) {
-            case 1:
-                document.getElementById("drinkImage").setAttribute("src", "rasperrywidow.jpg")
-                useImage += 1
-                break
-            case 2:
-                document.getElementById("drinkImage").setAttribute("src", "orangemojito.jpg")
-                useImage += 1
-                break
-            case 3:
-                document.getElementById("drinkImage").setAttribute("src", "Roselavender.jpg")
-                useImage = 1
-                break
+                default:
+                    break;
+            }
         }
-    }
-</script>
-        
+    </script>
+
 
 </body>
-</html> 
+
+</html>
