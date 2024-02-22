@@ -1,94 +1,92 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>WebApss Assignment06</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css”
-        rel=”nofollow” integrity=”sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I”
-        crossorigin=”anonymous”>
-</head>
+        
+        <!DOCTYPE html>
+        <html>
+           <head>
+            <title>WebApss Assignment06</title>
+            <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+ </head>
 
 <body>
-    <div class="container">
-        <h1>Animal game by <span>Greeshma Borra</span></h1>
 
-        <form>
-            <div class="set">
-                <label for="form1_hidden_animal">The hidden animal type</label>
-                <input class="form-control" type="password" id="form1_hidden_animal" name="form1_hidden_animal" value="Chicken"> <br>
-            </div>
-            <div class="set">
-                <label for="form1_guess_animal">Guess the animal</label>
-                <input class="form-control" type="text" id="form1_guess_animal" name="form1_guess_animal" autofocus> <br>
-            </div>
-            <input type="button" class="button" id="btn" onclick="checkAnimal()" value="Check the guess">
-        </form>
+<h2>Animal game by Greeshma Borra</h2>
+<h2>Getting input</h2>
 
+<form>
+    <label for="secretAnimal">The hidden animal type</label>
+    <input type="password" id="secretAnimal" value="Chicken">
 
-        <p id="result">This text will be replaced</p>
+    <label for="guessAnimal">Guess the animal</label>
+    <input type="text" id="guessAnimal">
 
-        <div class="image-container" onclick="collapse">
-            <img id="imageCarasoul" src="./images/panakam.jpeg" onclick="selectImage()" alt="" width="150px"
-                height="150px">
-        </div>
-    </div>
-    <script>
-        let wrong = 0
-        let correct = 0
-        let useImage = 1;
+    <button type="button" class="btn btn-success" onclick="checkAnimal()">Check the guess</button>
+</form>
 
-        function checkAnimal() {
-            hidden = document.getElementById("form1_hidden_animal").value
-            guess = document.getElementById("form1_guess_animal").value
-            button = document.getElementById("btn")
-            // confirmed = confirm("Are these the values? "+age+" and "+nick)
+<p id="resultHolder">Correct: 0 | Wrong: 0</p>
 
+<h4>Click On Image</h4>
 
-            out = document.getElementById("result")
-            if (hidden === guess) {
-                alert("Ruff ruff")
-                correct++
-            } else {
-                alert("Grrrr")
-                wrong++
-            }
-            if (wrong > correct)
-                button.setAttribute('onclick', 'tooManyWrong()')
-            out.innerHTML = "Correct: " + correct + " Wrong: " + wrong
+<div>
+    <img src="orangemojito.jpg" id="myimage" width="150" height="150" onclick="selectImage()">
+  </div>
+
+  </body>
+
+<script>
+    let correct = 0;
+    let wrong = 0;
+
+    function checkAnimal() {
+        if (wrong < 10)
+        {
+        const secretAnimal = document.getElementById("secretAnimal").value;
+        const guessedAnimal = document.getElementById("guessAnimal").value;
+     
+        if (secretAnimal.toLowerCase() === guessedAnimal.toLowerCase()) {
+            correct++;
+            alert("Ruff ruff");
+        } else {
+            wrong++;
+            alert("Grrrr");
         }
 
-
-
-
-
-        function tooManyWrong() {
-            alert("Sorry, too many wrong guesses.")
-
-        }
-
+        const result = document.getElementById("resultHolder");
+        result.innerHTML = `Correct: ${correct} | Wrong: ${wrong}`;
+    }
+    else{ alert("Sorry, too many wrong guesses")}
+    }
+  
+        var useImage = 1
         function selectImage() {
-
-            imageCarasoul = document.getElementById("imageCarasoul")
-
             switch (useImage) {
-                case 1: imageCarasoul.src = "./images/Tati_Kallu.jpg"
-                    useImage = 2
-                    break;
-                case 2: imageCarasoul.src = "./images/Lemon_Soda.jpg"
-                    useImage = 3
-                    break;
-                case 3: imageCarasoul.src = "./images/panakam.jpeg"
+                case 1:
+                    document.getElementById("myimage").src = "rasperrywidow.jpg";
+                    useImage++
+                    break
+                case 2:
+                    document.getElementById("myimage").src = "orangemojito.jpg";
+                    useImage++
+                    break
+                case 3:
+                    document.getElementById("myimage").src = "Roselavender.jpg";
                     useImage = 1
-                    break;
-
+                    break
                 default:
-                    break;
+
+
+
             }
         }
+
     </script>
 
 
-</body>
 
 </html>
